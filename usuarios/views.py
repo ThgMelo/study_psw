@@ -49,3 +49,7 @@ def logar(request):
                 request, constants.ERROR, 'Username ou senha inválidos!'
             )
             return redirect('/usuarios/logar/')
+        
+def logout(request):
+    auth.logout(request)
+    return redirect('/usuarios/logar')
