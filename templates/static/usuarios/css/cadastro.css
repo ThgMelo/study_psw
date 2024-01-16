@@ -12,6 +12,11 @@
 .titulo-fonte{
     margin-top: 20px;
 }
+
+.box-title{
+    display: flex;
+}
+
    
 .divisor{
     border: 0;
