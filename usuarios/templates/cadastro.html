@@ -36,7 +36,7 @@
                     </div>
                     <br>
                     <h3>Cadastre-se</h3>
-                    <form action="" method="POST">
+                    <form action="{% url 'cadastro' %}" method="POST"> {% csrf_token %}
                         <label>Username</label>
                         <input type="text" class="input-form" name="username" id="">
                         <br>
