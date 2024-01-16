@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block 'cabecalho' %}
+ <link rel="stylesheet" href="{% static 'usuarios/css/cadastro.css' %}" >
+{% endblock %}
+
 {% block 'conteudo' %}
  <div class="bg1">
  <div class="container">
