@@ -11,6 +11,7 @@ def novo_flashcard(request):
     if request.method == 'GET':
         categorias = Categoria.objects.all()
         dificuldades = Flashcard.DIFICULDADE_CHOICES
+        flashcards = Flashcard.objects.filter(user=request.user)
 
         return render(
             request,
@@ -18,6 +19,7 @@ def novo_flashcard(request):
             {
                 'categorias': categorias,
                 'dificuldades': dificuldades,
+                'flashcards': flashcards,
             }
         )
     
