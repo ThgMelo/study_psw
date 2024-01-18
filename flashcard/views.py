@@ -75,3 +75,8 @@ def deletar_flashcard(request, id):
         )
 
     return redirect('/flashcard/novo_flashcard')
+
+def iniciar_desafio(request):
+    if request.method == 'GET':
+        return render(request, 'iniciar_desafio.html')
+    
