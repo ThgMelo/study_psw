@@ -120,3 +120,7 @@ def iniciar_desafio(request):
 
         desafio.save()
         return redirect('/flashcard/iniciar_desafio/')
+    
+
+def listar_desafio(request):
+    return render(request, 'listar_desafio.html')
