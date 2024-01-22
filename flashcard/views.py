@@ -97,8 +97,7 @@ def iniciar_desafio(request):
         )
         desafio.save()
 
-        for categoria in categorias:
-            desafio.categoria.add(categoria)
+        desafio.categoria.add(*categorias)
 
         flashcards = (
             Flashcard.objects.filter(user=request.user)
@@ -107,15 +106,17 @@ def iniciar_desafio(request):
             .order_by('?')
         )
 
-        if flashcards.counts() < int(qtd_perguntas):
+        if flashcards.count() < int(qtd_perguntas):
             return redirect('/flashcard/iniciar_desafio/')
         
-        flashcards = flashcards[:int(qtd_perguntas)]
+        flashcards = flashcards[: int(qtd_perguntas)]
 
         for f in flashcards:
-            flashcard_desafio = FlashcardDesafio(fashcard=f,)
+            flashcard_desafio = FlashcardDesafio(
+                flashcard=f
+            )
             flashcard_desafio.save()
             desafio.flashcards.add(flashcard_desafio)
 
         desafio.save()
-        return redirect(f'/flashcard/desafio/{desafio.id}')
+        return redirect('/flashcard/iniciar_desafio/')
